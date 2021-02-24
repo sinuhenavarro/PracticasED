@@ -1,0 +1,1 @@
+INDEX VERSION 1.131+/home/sinuhe/Dropbox/Curso20-21/ED/PracticasED/.metadata/.plugins/org.eclipse.jdt.core
