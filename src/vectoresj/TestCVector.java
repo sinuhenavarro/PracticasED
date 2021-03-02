@@ -9,12 +9,12 @@ import static org.junit.Assert.*;
 
 
 public class TestCVector {
-	public CVector v;
+	public CVector instance;
 	
     @BeforeEach
     public void setUpClass() {
     	System.out.println("Creado Objeto CVector");
-    	v = new CVector();
+    	instance = new CVector();
     }
 
     /**
@@ -24,8 +24,8 @@ public class TestCVector {
     public void testInsertar1() {
         System.out.println("Insertar - Caso1");
         try {
-            v.insertar(83);
-            assertEquals(83,v.posicion(0));
+            instance.insertar(83);
+            assertEquals(83,instance.posicion(0));
         } catch (Exception e){
             fail("Ha salido excepción");
         }
@@ -34,13 +34,13 @@ public class TestCVector {
     @Test
     public void testInsertar2() {
         Random r = new Random();
-        CVector v = new CVector();
+        
         try {
             for (int i=0; i<99; i++){
-                v.insertar(r.nextInt());
+                instance.insertar(r.nextInt());
             }
-            v.insertar(186);
-            assertEquals(186,v.posicion(99));
+            instance.insertar(186);
+            assertEquals(186,instance.posicion(99));
         } catch (Exception e){
             fail("Ha saltado una excepción");
         }
@@ -49,16 +49,16 @@ public class TestCVector {
     @Test()
     public void testInsertar3() throws VectorLlenoException{
         Random r = new Random();
-        CVector v = new CVector();
+        
         try {
             for (int i=0; i<100; i++){
-                v.insertar(r.nextInt());
+                instance.insertar(r.nextInt());
             }
         } catch (Exception e){
             fail("Ha saltado una excepción");
         }
         
-        v.insertar(523);
+        instance.insertar(523);
        
         
     }
@@ -66,19 +66,19 @@ public class TestCVector {
     @Test
     public void testVectorLleno1() {
         System.out.println("vector_lleno - Caso1");
-        CVector v = new CVector();
-        assertFalse(v.vector_lleno());
+        
+        assertFalse(instance.vector_lleno());
     }
 
     @Test
     public void testVectorLleno2() {
         Random r = new Random();
-        CVector v = new CVector();
+        
         try {
             for (int i=0; i<99; i++){
-                v.insertar(r.nextInt());
+                instance.insertar(r.nextInt());
             }
-            assertFalse(v.vector_lleno());
+            assertFalse(instance.vector_lleno());
         } catch (Exception e){
             fail("Ha saltado una excepción");
         }
@@ -87,16 +87,16 @@ public class TestCVector {
     @Test
     public void testVectorLleno3() throws VectorLlenoException{
         Random r = new Random();
-        CVector v = new CVector();
+        
         try {
             for (int i=0; i<100; i++){
-                v.insertar(r.nextInt());
+                instance.insertar(r.nextInt());
             }
         } catch (Exception e){
             fail("Ha saltado una excepción");
         }
         
-        assertTrue(v.vector_lleno());
+        assertTrue(instance.vector_lleno());
        
         
     }
@@ -108,8 +108,8 @@ public class TestCVector {
     public void testOrdenar_vector1() {
         System.out.println("ordenar_vector 1");
         
-        v.ordenar_vector();
-        assertEquals("{}",v.toString());
+        instance.ordenar_vector();
+        assertEquals("{}",instance.toString());
     }
 
 /**
@@ -121,11 +121,11 @@ public class TestCVector {
         
         try {
             for (int i=0; i<6; i++){
-                v.insertar(5);
+                instance.insertar(5);
             }
-            v.ordenar_vector();
+            instance.ordenar_vector();
 
-            assertEquals("{5,5,5,5,5,5}",v.toString());
+            assertEquals("{5,5,5,5,5,5}",instance.toString());
         } catch (Exception e){
             fail("Ha saltado una excepción");
         }
@@ -141,11 +141,11 @@ public class TestCVector {
         
         try {
             for (int i=0; i<v.length; i++){
-                v.insertar(v[i]);
+                instance.insertar(v[i]);
             }
-            v.ordenar_vector();
+            instance.ordenar_vector();
             for (int i=0; i<r.length; i++){
-                assertEquals(r[i],v.posicion(i));
+                assertEquals(r[i],instance.posicion(i));
             }
         } catch (Exception e){
             fail("Ha saltado una excepción.");
@@ -161,15 +161,15 @@ public class TestCVector {
         Random r = new Random();
         try {
             for (int i=0; i<100; i++){
-                v.insertar(r.nextInt());
+                instance.insertar(r.nextInt());
             }
         } catch (Exception e){
             fail("Ha saltado una excepción");
         }        
                
-        v.ordenar_vector();
+        instance.ordenar_vector();
         for (int i=1; i<100; i++){
-           assertTrue(v.posicion(i-1)<=v.posicion(i)); 
+           assertTrue(instance.posicion(i-1)<=instance.posicion(i)); 
         }
         
     }
@@ -183,8 +183,8 @@ public class TestCVector {
         System.out.println("posicion 1");
         
         try {
-           v.insertar(72); 
-           assertEquals(72,v.posicion(0));
+           instance.insertar(72); 
+           assertEquals(72,instance.posicion(0));
         } catch (Exception e){
             fail("Ha saltado una excepción");
         }
@@ -203,9 +203,9 @@ public class TestCVector {
         try {
             for (int i=0; i<100; i++){
                 ultimo=r.nextInt();
-                v.insertar(ultimo);
+                instance.insertar(ultimo);
             }
-            assertEquals(ultimo,v.posicion(99));
+            assertEquals(ultimo,instance.posicion(99));
         } catch (Exception e){
             fail("Ha saltado una excepción");
         }        
@@ -222,12 +222,12 @@ public class TestCVector {
         Random r = new Random();
         try {
             for (int i=0; i<100; i++){
-                v.insertar(r.nextInt());
+                instance.insertar(r.nextInt());
             }
         } catch (Exception e){
             fail("Ha saltado una excepción");
         }   
-        v.posicion(-1);
+        instance.posicion(-1);
     }
 
     /**
@@ -240,12 +240,12 @@ public class TestCVector {
         Random r = new Random();
         try {
             for (int i=0; i<40; i++){
-                v.insertar(r.nextInt());
+                instance.insertar(r.nextInt());
             }
         } catch (Exception e){
             fail("Ha saltado una excepción");
         }   
-        v.posicion(40);
+        instance.posicion(40);
     }
 
     /**
@@ -255,7 +255,7 @@ public class TestCVector {
     public void testPosicion5() {
         System.out.println("posicion 5");
         
-        v.posicion(0);
+        instance.posicion(0);
     }
 
     @Test
@@ -266,13 +266,13 @@ public class TestCVector {
         try {
             for (int i=0; i<100; i++){
                 if (i!=30 && i!=70){
-                    v.insertar(r.nextInt(20));
+                    instance.insertar(r.nextInt(20));
                 } else {
-                    v.insertar(25);
+                    instance.insertar(25);
                 }
             }
-            assertEquals(30,v.encuentraPosicion(25,0));
-            assertEquals(70,v.encuentraPosicion(25,31));
+            assertEquals(30,instance.encuentraPosicion(25,0));
+            assertEquals(70,instance.encuentraPosicion(25,31));
         } catch (Exception e){
             fail("Ha saltado una excepción");
         }   
@@ -284,11 +284,11 @@ public class TestCVector {
         System.out.println("testencuentraPosicion2");
            
         try {
-            v.insertar(3);
+            instance.insertar(3);
         } catch (Exception e){
             fail("Ha saltado una excepción");
         } 
-        int pos=v.encuentraPosicion(3, -1);
+        int pos=instance.encuentraPosicion(3, -1);
     }
 
     @Test()
@@ -296,11 +296,11 @@ public class TestCVector {
         System.out.println("testencuentraPosicion3");
            
         try {
-            v.insertar(3);
+            instance.insertar(3);
         } catch (Exception e){
             fail("Ha saltado una excepción");
         } 
-        int pos=v.encuentraPosicion(3, 2);
+        int pos=instance.encuentraPosicion(3, 2);
     }
 
     @Test
@@ -308,7 +308,7 @@ public class TestCVector {
         System.out.println("testencuentraPosicion4");
            
         
-        assertEquals(-1,v.encuentraPosicion(3, 0));
+        assertEquals(-1,instance.encuentraPosicion(3, 0));
     }
     
 
