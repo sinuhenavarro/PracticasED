@@ -75,7 +75,7 @@ public class TestCVector {
         Random r = new Random();
         
         try {
-            for (int i=0; i<99; i++){
+            for (int i=0; i<100; i++){
                 instance.insertar(r.nextInt());
             }
             assertFalse(instance.vector_lleno());
