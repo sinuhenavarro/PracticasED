@@ -9,6 +9,7 @@ public class BusquedaBinaria {
 	 * 
 	 * @param x Array de enteros ordenados de menor a mayor.
 	 * @param srch Número entero que se desea encontrar en el array x.
+	 * @param hiIndex Primeros números del array x en los que se busca srch
 	 * @return false si no lo encuentra y true si lo encuentra.
 	 * @throws ArrayNoOrdenadoException si los primeros hiIndex números del array no están ordenados de menor a mayor
 	 * @throws IndexOutOfBoundsException si hiIndex es mayor que la longitud del array
