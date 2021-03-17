@@ -4,7 +4,7 @@ package busquedaBinaria;
 public class BusquedaBinaria {
 
 	/** 
-	 * Busca un número entero en un array de enteros ordenados de mayor a menor
+	 * Busca un número entero en un array de enteros ordenados de nenor a mayor
 	 * entre los hiIndex primeros elementos
 	 * 
 	 * @param x Array de enteros ordenados de menor a mayor.
@@ -13,7 +13,6 @@ public class BusquedaBinaria {
 	 * @return false si no lo encuentra y true si lo encuentra.
 	 * @throws ArrayNoOrdenadoException si los primeros hiIndex números del array no están ordenados de menor a mayor
 	 * @throws IndexOutOfBoundsException si hiIndex es mayor que la longitud del array
-	 * @hiIndex es el tope de longitud de x en el que buscará srch
 	 */
 	public boolean buscar (int [] x, int srch, int hiIndex) throws ArrayNoOrdenadoException {
 		int loIndex = 0; 
